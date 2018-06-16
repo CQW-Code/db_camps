@@ -13,6 +13,7 @@ class NavBar extends Component {
         <Menu.Menu position='right'>
           <Menu.Item
             name='Logout'
+            style= {styles.text}
             onClick={() => dispatch(handleLogout(history))}
           />
         </Menu.Menu>
@@ -21,10 +22,14 @@ class NavBar extends Component {
     return (
       <Menu.Menu position='right'>
         <Link to='/register'>
-          <Menu.Item name='Register' />
+          <Menu.Item 
+            name='Register'
+            style= {styles.text} />
         </Link>
         <Link to='/login'>
-          <Menu.Item name='Login' />
+          <Menu.Item 
+           name='Login'
+           styles= {styles.text} />
         </Link>
       </Menu.Menu>
     );
@@ -35,12 +40,34 @@ class NavBar extends Component {
       <div>
         <Menu pointing secondary>
           <Link to='/'>
-            <Menu.Item name='home' />
+            <Menu.Item 
+              name='home' 
+              style={styles.text}/>
           </Link>
           { this.rightNavs() }
         </Menu>
       </div>
     );
+  }
+}
+
+const styles = {
+  text: {
+    color: "#FFF",
+    fontSize: 20,
+  },
+  navbarWrap: {
+    position: 'fixed',
+    width: '100%',
+    zIndex: '10',
+  },
+  background: {
+    backgroundColor: "black",
+  },
+  image: {
+    textAlign: 'middle',
+    height: '5%',
+    width: '10%',
   }
 }
 

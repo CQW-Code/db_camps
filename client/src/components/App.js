@@ -9,11 +9,14 @@ import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
 import { Switch, Route } from 'react-router-dom';
+import { Segment } from 'semantic-ui-react';
+import allCamps from './allCamps';
 
 class App extends Component {
   render() {
     return (
-      <div>
+      
+       <Segment style={styles.background}>
         <NavBar />
         <Flash />
         <FetchUser>
@@ -21,12 +24,19 @@ class App extends Component {
             <Route exact path='/' component={Home} />
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
+            <ProtectedRoute exact path='/camps' component={allCamps} />
             <Route component={NoMatch} />
           </Switch>
         </FetchUser>
-      </div>
+      </Segment>
     );
   }
+}
+
+const styles = {
+  background: {
+    backgroundColor: 'black',
+  },
 }
 
 export default App;

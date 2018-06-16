@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180513012313) do
+ActiveRecord::Schema.define(version: 20180517143706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "camps", force: :cascade do |t|
+    t.string "name"
+    t.string "organization"
+    t.string "address1"
+    t.string "address2"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "web_url"
+    t.date "begin_date"
+    t.date "end_date"
+    t.text "details"
+    t.string "contact1"
+    t.string "type1"
+    t.string "contact2"
+    t.string "type2"
+    t.string "email"
+    t.string "cost"
+    t.string "eligibility"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
