@@ -1,109 +1,71 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import { Button,
-         Container,
-         Divider,
-         Grid,
-         Segment,
-        } from 'semantic-ui-react';
-
-
-const ButtonLink = styled.a`
-font-weight: bold;
-font-size: 20px;
-display: flex;
-justify-content: space-around;
-`
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+// import styled from "styled-components";
+import { Button, Container, Divider, Header, Segment } from "semantic-ui-react";
+import Footer from "./Footer";
 
 class Home extends Component {
   render() {
     return (
-
-      <Segment basic style={ styles.mainContainer}>
-      <ButtonLink>
-        <Link to="/camps" style={styles.text}>Gallery of Camps/Resorts</Link>
-        <Link to="/randomcamp" style={styles.text}>Gallery of Camps/Resorts</Link>
-      </ButtonLink>
-      <br/>
-      <br/>
-      <Container style={styles.middleContainer}>
-        <Divider />
-        <Grid>
-          <Grid.Row centered columns={3}>
-            <Grid.Column
-              computer={8}
-              mobile={16}
-              tablet={8}>
-              
-              <h2>A Limited resource for DeafBlind</h2>
-              <p>This is a work in progress in an effort to create
-                a clearinghouse of sorts for users to look up Camps and
-                Retreats geared to DeafBlind users of all ages. 
-              </p>
-            </Grid.Column>
-            <Grid.Column
-              computer={8}
-              mobile={16}
-              tablet={8}>
-              <h2>Locations</h2>
-              <p>Currently this app will start with locations
-                in the United States only; more will be added
-                in the future as I hope to expand this.
-              </p>
-            <Grid.Column
-              computer={8}
-              mobile={16}
-              tablet={8}>
-              
-            </Grid.Column>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-        <Grid.Row centered columns={3}>
-          <Grid.Column
-            computer={8}
-            mobile={16}
-            tablet={8}>
-          </Grid.Column>
-        </Grid.Row>
-      </Container>
-      <Divider />
+      //can't figure out why the grey section is not flush
+      //with the edge of screen?
+      <Segment basic style={styles.main}>
+        <Header style={styles.hdr}>DeafBlind Resources</Header>
+        <Button style={styles.btn_link}>
+          <Link to="/camps" style={styles.text}>
+            Camps/Resorts
+          </Link>
+        </Button>
+        <Divider hidden />
+        <Button style={styles.btn_link}>
+          Conferences/Workshops (Coming soon)
+        </Button>
+        <Divider hidden />
+        <Button style={styles.btn_link}>
+          Miscellaneous Resources (Coming soon)
+        </Button>
+        <Divider hidden />
+        <Button style={styles.btn_link}>
+          <Link to="/randomcamp" style={styles.text}>
+            Feeling Lucky- random selection! (Coming soon)
+          </Link>
+        </Button>
       </Segment>
     );
   }
 }
-  
 
 const styles = {
+  hdr: {
+    color: "navy",
+    textAlign: "center",
+    fontSize: "4em"
+  },
+
   text: {
-    color: 'yellow',
+    color: "yellow"
+  },
+
+  image: {
+    alignSelf: "center"
   },
   main: {
-    color: "#FFF",
+    height: "fill",
+    background: "gray",
+    // color: "black",
+    width: "100%"
   },
-  image: {
-    alignSelf: "center",
-  },
-  middleContainer: {
-    height:'fill',
-    background: 'white',
-    width: '100%',
-    justifyContent: 'center',
-  
-  },
-  
-  appIcon:{
-    width: '160px'
-  },
-  btns:{
-    padding: '10px',
-    width: '10vw',
-    height: '5vh',
-  },
-}
 
-    
-
+  btn_link: {
+    backgroundColor: "black",
+    fontSize: "2em",
+    color: "yellow",
+    border: "solid 3px yellow",
+    width: "400px",
+    padding: "20px",
+    marginLeft: "250px",
+    marginRight: "450px"
+  }
+};
 
 export default Home;

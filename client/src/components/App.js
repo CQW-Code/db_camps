@@ -1,33 +1,34 @@
-import React, { Component } from 'react';
-import NoMatch from './NoMatch';
-import NavBar from './NavBar';
-import Login from './Login';
-import Register from './Register';
-import Flash from './Flash';
-import Home from './Home';
-import ProtectedRoute from './ProtectedRoute';
-import AuthRoute from './AuthRoute';
-import FetchUser from './FetchUser';
-import { Switch, Route } from 'react-router-dom';
-import { Segment } from 'semantic-ui-react';
-import allCamps from './allCamps';
+import React, { Component } from "react";
+import NoMatch from "./NoMatch";
+import NavBar from "./NavBar";
+import Login from "./Login";
+import Register from "./Register";
+import Flash from "./Flash";
+import Home from "./Home";
+import ProtectedRoute from "./ProtectedRoute";
+import AuthRoute from "./AuthRoute";
+import FetchUser from "./FetchUser";
+import { Switch, Route } from "react-router-dom";
+import { Segment } from "semantic-ui-react";
+import allCamps from "./allCamps";
+import Footer from "./Footer";
 
 class App extends Component {
   render() {
     return (
-      
-       <Segment style={styles.background}>
+      <Segment style={styles.background}>
         <NavBar />
         <Flash />
         <FetchUser>
           <Switch>
-            <Route exact path='/' component={Home} />
-            <AuthRoute exact path='/login' component={Login} />
-            <AuthRoute exact path='/register' component={Register} />
-            <ProtectedRoute exact path='/camps' component={allCamps} />
+            <Route exact path="/" component={Home} />
+            {/* <AuthRoute exact path='/login' component={Login} /> */}
+            {/* <AuthRoute exact path='/register' component={Register} /> */}
+            <Route exact path="/camps" component={allCamps} />
             <Route component={NoMatch} />
           </Switch>
         </FetchUser>
+        <Footer />
       </Segment>
     );
   }
@@ -35,8 +36,8 @@ class App extends Component {
 
 const styles = {
   background: {
-    backgroundColor: 'black',
-  },
-}
+    backgroundColor: "black"
+  }
+};
 
 export default App;
