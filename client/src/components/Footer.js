@@ -6,7 +6,7 @@ import styled from "styled-components";
 class FooterBar extends React.Component {
   render() {
     return (
-      <Segment color="black">
+      <Segment inverted color="teal">
         <FooterContainer>
           <SocialMedia />
         </FooterContainer>

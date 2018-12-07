@@ -1,9 +1,9 @@
-import { combineReducers } from 'redux';
-import user from './user';
-import flash from './flash';
+import { combineReducers } from "redux";
+import camps from "./camps";
+import flash from "./flash";
 
 const rootReducer = combineReducers({
-  user,
+  camps,
   flash
 });
 

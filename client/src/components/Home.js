@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 // import styled from "styled-components";
 import { Button, Container, Divider, Header, Segment } from "semantic-ui-react";
-import Footer from "./Footer";
+import FetchCamps from "./FetchCamps";
 
 class Home extends Component {
   render() {
@@ -68,4 +69,4 @@ const styles = {
   }
 };
 
-export default Home;
+export default connect()(Home);

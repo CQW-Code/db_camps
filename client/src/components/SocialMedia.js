@@ -4,8 +4,7 @@ import { Button, Icon, Label, Segment } from "semantic-ui-react";
 
 const SocialMedia = () => {
   return (
-    // <Segment style={styles.btn_socmed}>
-    <Segment>
+    <Segment inverted>
       <Button circular color="red">
         <Icon name="envelope" />
         Email
@@ -32,12 +31,7 @@ const SocialMedia = () => {
       </Button>
 
       <Label style={styles.label}>
-        <Icon
-          name="copyright outline"
-          size="large"
-          color="black"
-          style={styles.copy}
-        />
+        <Icon name="copyright outline" size="large" style={styles.copy} />
         FuzzDuckie Enterprise
       </Label>
     </Segment>
@@ -50,11 +44,12 @@ const styles = {
     padding: "10px",
     marginBottom: "15px",
     float: "right",
-    backgroundColor: "transparent"
+    backgroundColor: "transparent",
+    color: "white"
+  },
+  copy: {
+    color: "white"
   }
-  // copy: {
-  //   marginLeft: "315px"
-  // }
 };
 
 export default SocialMedia;

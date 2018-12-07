@@ -1,8 +1,7 @@
 import React from "react";
-import axios from "axios";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { setHeaders } from "../actions/headers";
+// import { setHeaders } from "../actions/headers";
 import {
   Button,
   Card,
@@ -10,33 +9,25 @@ import {
   Divider,
   //Dropdown,
   Header,
-  Icon,
-  Image,
-  Responsive
+  Image
 } from "semantic-ui-react";
 import styled from "styled-components";
 import { getCamps } from "../actions/camps";
 
-class allCamps extends React.Component {
-  state = { camps: [] };
+class AllCamps extends React.Component {
+  //map through camps db to display
+  state = { camps: [{}] };
 
-  componentDidMount = () => {
-    const { dispatch } = this.props;
-    axios.get("api/camps").then(res => {
-      this.setState({ camps: res.data });
-      dispatch(setHeaders(res.headers));
-      dispatch(getCamps(res.camps));
-      console.log(res);
-    });
-  };
-
+  // componentDidMount() {
+  //   this.props.dispatch(getCamps());
+  // }
   allCamps = () => {
-    const { camps } = this.state;
-
+    const { camps } = this.props;
+    console.log({ camps });
     return camps.map(c => (
       <Card style={styles.cardStyle} key={c.id}>
         <h2>{c.name}</h2>
-        <StyledImage src={c.image} alt={`${c.title}  ${c.variety}`} />
+        {/* <StyledImage src={c.image} alt={`${c.title}  ${c.variety}`} /> */}
         <Card.Content>
           <Card.Header>
             {c.address1} <br />
@@ -58,13 +49,11 @@ class allCamps extends React.Component {
             )}
           </Card.Header>
         </Card.Content>
-        <Responsive as="Image" minWidth={1000}>
-          <Link to={`/camps/${c.id}`}>
-            <Button style={styles.btn} fluid color="teal">
-              View Details
-            </Button>
-          </Link>
-        </Responsive>
+        <Link to={`/camps/${c.id}`}>
+          <Button style={styles.btn} fluid color="teal">
+            View Details
+          </Button>
+        </Link>
       </Card>
     ));
   };
@@ -121,11 +110,9 @@ const StyledImage = styled(Image)`
   width: auto !important;
 `;
 
-const mapStateToProps = (state, props) => {
-  return {
-    camps: state.camps,
-    camp: state.camp
-  };
+const mapStateToProps = state => {
+  const { camps } = state;
+  return { camps };
 };
 
-export default connect(mapStateToProps)(allCamps);
+export default connect(mapStateToProps)(AllCamps);
